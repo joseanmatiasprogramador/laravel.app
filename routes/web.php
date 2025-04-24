@@ -16,14 +16,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('welcome'[
-            'event' => $event->only(
-                'id',
-                'title',
-                'start_date',
-                'description'
-            ),
-        ]);
+    return view('welcome', []);
 })->withMiddleware(function (Middleware $middleware) {
     $middleware->web(append: [
         HandleInertiaRequests::class,
