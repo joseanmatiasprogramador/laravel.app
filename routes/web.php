@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GreetingController;
-use App\Http\Middleware\HandleInertiaRequests;
-use Inertia\Inertia;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +15,6 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return view('welcome', []);
-})->withMiddleware(function (Middleware $middleware) {
-    $middleware->web(append: [
-        HandleInertiaRequests::class,
-    ]);
 });
 
 Route::get('/greeting', [GreetingController::class, 'show']);
